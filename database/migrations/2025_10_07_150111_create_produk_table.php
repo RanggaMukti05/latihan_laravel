@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('harga_beli');
             $table->integer('harga_jual');
             $table->timestamps();
+
+            $table->foreign('id_kategori')->references('id_kategori')->on('barang');
         });
     }
 

@@ -11,7 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::table('produk', function (Blueprint $table) {
+            // ubah tipe data id_kategori menjadi unsigned integer
+            $table->unsignedInteger('id_kategori')->change();
+        });
     }
 
     /**
@@ -19,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+         Schema::table('produk', function (Blueprint $table) {
+            // kembalikan seperti semula jika di-rollback
+            $table->integer('id_kategori')->change();
+        });
     }
 };
